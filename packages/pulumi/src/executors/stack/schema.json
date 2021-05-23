@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "title": "Stack executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "init": {
+      "type": "string",
+      "description": "Create stack"
+    },
+    "rm": {
+      "type": "string",
+      "description": "Remove stack"
+    },
+    "ls": {
+      "type": "boolean",
+      "description": "List stacks"
+    }
+  },
+  "required": []
+}

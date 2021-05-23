@@ -1,0 +1,84 @@
+{
+  "version": 2,
+  "projects": {
+    "pulumi": {
+      "root": "packages/pulumi",
+      "sourceRoot": "packages/pulumi/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/pulumi/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/pulumi"
+          ],
+          "options": {
+            "jestConfig": "packages/pulumi/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/packages/pulumi",
+            "tsConfig": "packages/pulumi/tsconfig.lib.json",
+            "packageJson": "packages/pulumi/package.json",
+            "main": "packages/pulumi/src/index.ts",
+            "assets": [
+              "packages/pulumi/*.md",
+              {
+                "input": "./packages/pulumi/src",
+                "glob": "**/!(*.ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./packages/pulumi/src",
+                "glob": "**/*.d.ts",
+                "output": "./src"
+              },
+              {
+                "input": "./packages/pulumi",
+                "glob": "generators.json",
+                "output": "."
+              },
+              {
+                "input": "./packages/pulumi",
+                "glob": "executors.json",
+                "output": "."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "pulumi-e2e": {
+      "projectType": "application",
+      "root": "e2e/pulumi-e2e",
+      "sourceRoot": "e2e/pulumi-e2e/src",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/nx-plugin:e2e",
+          "options": {
+            "target": "pulumi:build",
+            "npmPackageName": "@elssuy/pulumi",
+            "pluginOutputPath": "dist/packages/pulumi",
+            "jestConfig": "e2e/pulumi-e2e/jest.config.js"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/workspace"
+  }
+}

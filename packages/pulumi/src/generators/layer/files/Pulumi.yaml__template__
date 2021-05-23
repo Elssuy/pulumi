@@ -1,0 +1,4 @@
+name: <%= layerName %>
+runtime: nodejs
+description: <%= layerDescription %>
+main: src/index.ts

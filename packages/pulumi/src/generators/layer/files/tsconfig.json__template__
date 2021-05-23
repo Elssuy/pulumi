@@ -1,0 +1,6 @@
+{
+  "extends": "<%= offsetFromRoot %>tsconfig.base.json",
+  "files": [],
+  "exclude": ["**/*.spec.ts"],
+  "include": ["**/*.ts"]
+}

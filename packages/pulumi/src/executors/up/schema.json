@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "title": "Up executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "env": {
+      "type": "string",
+      "description": "Env by the executor for Pulumi"
+    },
+    "args": {
+      "type": "string",
+      "description": "Extra arguments for pulumi preview"
+    }
+  },
+  "required": [],
+  "additionalProperties": true
+}

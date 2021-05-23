@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "pulumi",
+  "version": "0.0.1",
+  "generators": {
+    "layer": {
+      "factory": "./src/generators/layer/layer",
+      "schema": "./src/generators/layer/schema.json",
+      "description": "pulumi generator"
+    }
+  }
+}

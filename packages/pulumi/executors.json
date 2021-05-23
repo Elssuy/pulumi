@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "executors": {
+    "preview": {
+      "implementation": "./src/executors/preview/preview",
+      "schema": "./src/executors/preview/schema.json",
+      "description": "preview executor"
+    },
+    "stack": {
+      "implementation": "./src/executors/stack/stack",
+      "schema": "./src/executors/stack/schema.json",
+      "description": "stack executor"
+    },
+    "up": {
+      "implementation": "./src/executors/up/up",
+      "schema": "./src/executors/up/schema.json",
+      "description": "up executor"
+    },
+    "destroy": {
+      "implementation": "./src/executors/destroy/executor",
+      "schema": "./src/executors/destroy/schema.json",
+      "description": "destroy executor"
+    }
+  }
+}
